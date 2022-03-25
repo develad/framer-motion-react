@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <motion.div
+      className="card"
+      onClick={() => {
+        setIsOpen(!isOpen);
+      }}
+      layout
+      style={{ borderRadius: "20px", boxShadow: "0 -5px 20px rgba(0,0,0,0.5)" }}
+      transition={{ type: "spring", duration: 0.5 }}
+    >
+      <motion.h1 layout="position">Framer Card 🚀</motion.h1>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+            repellat dolore aspernatur qui ipsa modi placeat eligendi voluptate
+            magnam perspiciatis?
+          </p>
+
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Voluptatibus, numquam?
+          </p>
+        </motion.div>
+      )}
+    </motion.div>
   );
 }
 
