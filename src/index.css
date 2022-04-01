@@ -23,6 +23,7 @@ body {
   max-width: 500px;
   padding: 2rem 4rem;
   background: rgba(0, 0, 0, 0.5);
+  margin: 0 20px;
 }
 
 .card h1,
